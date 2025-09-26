@@ -1,0 +1,89 @@
+/* Reset for consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('../doodles-bg-dark.svg') repeat;
+  background-size: 200px;
+  color: #f0f0f0;
+}
+
+/* Header section */
+.header {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #4a6fa5;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.input-row input[type="text"] {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccd9ff;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-row button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4a6fa5;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.input-row button:hover {
+  background-color: #3a5884;
+}
+
+/* Upload section */
+.upload-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px dashed #a3c4f3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.upload-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #4a6fa5;
+}
+
+.upload-section input[type="file"] {
+  margin-top: 15px;
+}
