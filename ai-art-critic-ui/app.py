@@ -1,4 +1,3 @@
-from flask import Flask, render_template, request
 import os
 from openpyxl import load_workbook, Workbook
 from flask import Flask, render_template, request, flash
@@ -14,7 +13,7 @@ if not os.path.exists(EXCEL_FILE):
     wb = Workbook()
     ws = wb.active
     ws.title = "Users"
-    ws.append(["username", "userId"])
+    ws.append(["username", "userId", "country"])
     wb.save(EXCEL_FILE)
 else:
     try:
@@ -24,7 +23,7 @@ else:
         wb = Workbook()
         ws = wb.active
         ws.title = "Users"
-        ws.append(["username", "userId"])
+        ws.append(["username", "userId", "country"])
         wb.save(EXCEL_FILE)
 
 
@@ -32,9 +31,14 @@ else:
 def index():
     if request.method == "POST":
         username = request.form.get("username").strip()
+        country = request.form.get("country").strip()
 
         if not username:
             flash("Username cannot be empty!", "error")
+            return render_template("index.html")
+        
+        if not country:
+            flash("Country cannot be empty!", "error")
             return render_template("index.html")
 
         wb = load_workbook(EXCEL_FILE)
@@ -47,7 +51,7 @@ def index():
         else:
             # Generate a Unique User Id
             userId = str(uuid.uuid4())
-            ws.append([username,userId])
+            ws.append([username,userId, country])
             wb.save(EXCEL_FILE)
             flash(f"Username '{username}' added successfully!", "success")
 
